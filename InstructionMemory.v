@@ -5,6 +5,7 @@ module InstructionMemory (
     input [31:0] IAddr,     // 指令地址输入入口
     //input IDataIn,             // 没用到 
 
+    output [31:0] inst,
     output [ 5:0] op,
     output [ 4:0] rs,
     output [ 4:0] rt,
@@ -19,6 +20,7 @@ module InstructionMemory (
     end
 
     // 从地址取值，然后输出
+    assign inst = {mem[IAddr], mem[IAddr+1], mem[IAddr+2], mem[IAddr+3]};
     assign op = mem[IAddr][7:2];
     assign rs[4:3] = mem[IAddr][1:0];
     assign rs[2:0] = mem[IAddr+1][7:5];

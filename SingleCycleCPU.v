@@ -4,6 +4,7 @@ module SingleCycleCPU (
     input CLK,
     input Reset,
 
+    output [31:0] inst,
     output [ 5:0] op,
     output [ 4:0] rs,
     output [ 4:0] rt,
@@ -83,6 +84,7 @@ module SingleCycleCPU (
     InstructionMemory im (
         InsMemRW,
         currentAddress,
+        inst,
         op,
         rs,
         rt,

@@ -7,7 +7,7 @@ module SingleCPUTest;
     reg         Reset;
 
     // Outputs
-    wire [31:0] ins;
+    wire [31:0] inst;
     wire [ 5:0] op;
     wire [ 4:0] rs;
     wire [ 4:0] rt;
@@ -25,6 +25,7 @@ module SingleCPUTest;
         .CLK           (CLK),
         .Reset         (Reset),
 
+        .inst          (inst),
         .op            (op),
         .rs            (rs),
         .rt            (rt),
